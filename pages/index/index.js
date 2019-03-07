@@ -28,9 +28,10 @@ Page({
     let that = this;
     wx.getSystemInfo({
       success: function (res) {
+        console.log(res.windowHeight, res.windowWidth);
         that.setData({
-          windowW: res.windowWidth,
-          windowH: res.windowHeight,
+          windowW: res.windowHeight,
+          windowH: res.windowHeight * (342/ 904),
         });
        that.bginfo();
       },
@@ -38,19 +39,19 @@ Page({
   },
   bginfo: function () {
     let that = this;
-    // wx.downloadFile({
-    //   url: 'https://developers.weixin.qq.com/miniprogram/dev/image/cat/0.jpg?t=19030416',
-    //   // url: 'https://img-blog.csdnimg.cn/20190306134613846.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pKMTEwNTgwNTI4MQ==,size_16,color_FFFFFF,t_70',
-    //   success: function (res) {
-    //     that.setData({
-    //       canvasimgbg: res.tempFilePath
-    //     })
-    //     const context = wx.createCanvasContext('firstCanvas');
-    //     that.canvasdraw(context);
-    //   }
-    // })
+     wx.downloadFile({
+       //url: 'https://developers.weixin.qq.com/miniprogram/dev/image/cat/0.jpg?t=19030416',
+    url: './resources/images/seat_map.png',
+      success: function (res) {
+        that.setData({
+           canvasimgbg: res.tempFilePath
+         })
+         const context = wx.createCanvasContext('firstCanvas');
+         that.canvasdraw(context);
+       }
+     })
 
-    wx.getImageInfo({
+   /* wx.getImageInfo({
       src: 'https://img-blog.csdnimg.cn/20190306134613846.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pKMTEwNTgwNTI4MQ==,size_16,color_FFFFFF,t_70',
       success: function (res) {
         //res.path是网络图片的本地地址
@@ -65,16 +66,16 @@ Page({
       fail: function (res) {
         //失败回调
       }
-    });
+    }); */
   },
   canvasdraw: function (canvas) {
     let that = this;
     let windowW = that.data.windowW;
-    let windowH = that.data.windowH;
+    let windowH = that.data.windowH ;
     let canvasimgbg = that.data.canvasimgbg;
     let newWidth = this.remSize(windowW);
     let newHeight = this.remSize(windowH);
-    canvas.drawImage(canvasimgbg, 0, 0, newHeight, newWidth);
+    canvas.drawImage(canvasimgbg, 0, 0, windowW, windowH);
     canvas.draw();
     // canvas.draw(true, setTimeout(function () {
     //   // that.daochu()
@@ -176,7 +177,7 @@ Page({
     let canvasimgbg = this.data.canvasimgbg;
     let newWidth = this.remSize(windowW);
     let newHeight = this.remSize(windowH);
-    context.drawImage(canvasimgbg, 0, 0, newHeight, newWidth);
+    context.drawImage(canvasimgbg, 0, 0, windowW, windowH);
     context.beginPath();
     
     // 矩形
@@ -185,7 +186,7 @@ Page({
     let locationX = this.remSize(66);
     let locationY = this.remSize(108);
     console.log(locationX);
-    context.rect(locationX, locationY, 10, 10);
+    context.rect(63, 68, 10, 10);
     context.stroke();
 
     // context.setLineWidth(3);

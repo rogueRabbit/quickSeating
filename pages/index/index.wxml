@@ -12,6 +12,6 @@
     <image src="./resources/images/xiaorentou.png" class="xiaoren"></image>
   </view>  -->
   <view class="canvasWrap" style="width: 100%">
-    <canvas style="width: {{windowH}}px; height: {{windowW}}px; border: 0" canvas-id="firstCanvas"></canvas>
+    <canvas style="width: {{windowW}}px; height: {{windowH}}px; border: 0" canvas-id="firstCanvas"></canvas>
   </view>
 </view>
