@@ -38,8 +38,6 @@
 .canvasWrap {
   margin-top: 50px;
   display: flex;
-  justify-content: center;
-  background-color: #997348;
 }
 
 .mapWrap {

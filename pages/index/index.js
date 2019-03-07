@@ -28,7 +28,6 @@ Page({
     let that = this;
     wx.getSystemInfo({
       success: function (res) {
-        console.log(res.windowHeight, res.windowWidth);
         that.setData({
           windowW: res.windowHeight,
           windowH: res.windowHeight * (342/ 904),
@@ -38,20 +37,20 @@ Page({
     })
   },
   bginfo: function () {
-    let that = this;
-     wx.downloadFile({
-       //url: 'https://developers.weixin.qq.com/miniprogram/dev/image/cat/0.jpg?t=19030416',
-    url: './resources/images/seat_map.png',
-      success: function (res) {
-        that.setData({
-           canvasimgbg: res.tempFilePath
-         })
-         const context = wx.createCanvasContext('firstCanvas');
-         that.canvasdraw(context);
-       }
-     })
+     let that = this;
+    //  wx.downloadFile({
+    //    //url: 'https://developers.weixin.qq.com/miniprogram/dev/image/cat/0.jpg?t=19030416',
+    //   url: './resources/images/seat_map.png',
+    //   success: function (res) {
+    //     that.setData({
+    //        canvasimgbg: res.tempFilePath
+    //      })
+    //      const context = wx.createCanvasContext('firstCanvas');
+    //      that.canvasdraw(context);
+    //    }
+    //  })
 
-   /* wx.getImageInfo({
+   wx.getImageInfo({
       src: 'https://img-blog.csdnimg.cn/20190306134613846.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pKMTEwNTgwNTI4MQ==,size_16,color_FFFFFF,t_70',
       success: function (res) {
         //res.path是网络图片的本地地址
@@ -66,7 +65,7 @@ Page({
       fail: function (res) {
         //失败回调
       }
-    }); */
+    });
   },
   canvasdraw: function (canvas) {
     let that = this;
@@ -94,7 +93,6 @@ Page({
       destHeight: windowH,
       canvasId: 'secondCanvas',
       success: function (res) {
-        console.log(res)
         wx.saveImageToPhotosAlbum({
           filePath: res.tempFilePath,
           success(res) {
@@ -175,18 +173,19 @@ Page({
     let windowW = this.data.windowW;
     let windowH = this.data.windowH;
     let canvasimgbg = this.data.canvasimgbg;
-    let newWidth = this.remSize(windowW);
-    let newHeight = this.remSize(windowH);
     context.drawImage(canvasimgbg, 0, 0, windowW, windowH);
     context.beginPath();
     
     // 矩形
     context.setLineWidth(3);
     context.strokeStyle = "yellow";
-    let locationX = this.remSize(66);
-    let locationY = this.remSize(108);
+    let locationX = 142 * (windowH / windowW);
+    let locationY = 156 * (windowH / windowW);
+
+
     console.log(locationX);
-    context.rect(63, 68, 10, 10);
+    console.log(locationY);
+    context.rect(locationX, locationY, 10, 10);
     context.stroke();
 
     // context.setLineWidth(3);
