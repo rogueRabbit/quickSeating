@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="searchWrap">
+    <view class="searchContent">
+      <input type="text" placeholder='请输入您要搜索的同事的姓名！' class="searchInput" placeholder-class="inputPlaceholder"                        bindinput="wathInput"></input>
+      <button class="searchButton" bindtap="search">搜索</button>
+    </view>
+  </view>
+<!-- <view class="mapWrap">
+    <image src="./resources/images/seat_map.png" style="width: {{windowH}}px; height: {{windowW}}px"></image> 
+    <image src="./resources/images/seat_map.png" style="width: {{windowH}}px" mode="widthFix"></image>
+    <image src="./resources/images/xiaorentou.png" class="xiaoren"></image>
+  </view>  -->
+  <view class="canvasWrap" style="width: 100%">
+    <canvas style="width: {{windowH}}px; height: {{windowW}}px; border: 0" canvas-id="firstCanvas"></canvas>
+  </view>
+</view>
