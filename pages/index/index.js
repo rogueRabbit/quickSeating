@@ -5,7 +5,7 @@ const app = getApp()
 Page({
   data: {
     windowW: 0,
-    windowH: 750,
+    windowH: 0,
     canvasimgbg: '',
     inputValue: '',
     personnel: [
@@ -37,21 +37,31 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onReady: function () {
     let that = this;
-    that.sys();
+    setTimeout(function(){
+      that.sys();
+    }, 600)
   },
   sys: function () {
     let that = this;
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          windowW: res.screenHeight,
-          windowH: res.screenHeight * (429 / 1134),
-        });
-       that.bginfo();
-      },
-    })
+    const res = wx.getSystemInfoSync();
+    let screenWidth = res.screenWidth;
+    let screenHeight = res.screenHeight;
+
+    let windowW = 0;
+    if (screenWidth > screenHeight) {
+      windowW = screenWidth;
+    } else {
+      windowW = screenHeight;
+    }
+
+    that.setData({
+      windowW: windowW,
+      windowH: windowW * (429 / 1134),
+    });
+    console.log(res);
+    that.bginfo();
   },
   bginfo: function () {
      let that = this;
