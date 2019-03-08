@@ -8,10 +8,27 @@ Page({
     windowH: 750,
     canvasimgbg: '',
     inputValue: '',
-    scale: 1,
     personnel: [
-      { "name": "1", "location": { "x": 76, "y": 83} },
-      { "name": "2", "location": "" },
+      { "name": "1", "location": { "x": 115, "y": 125 } },
+      { "name": "2", "location": { "x": 157, "y": 125 } },
+      { "name": "3", "location": { "x": 220, "y": 125 } },
+      { "name": "4", "location": { "x": 267, "y": 125 } },
+      { "name": "5", "location": { "x": 328, "y": 125 } },
+      { "name": "6", "location": { "x": 383, "y": 125 } },
+      { "name": "7", "location": { "x": 438, "y": 125 } },
+      { "name": "8", "location": { "x": 495, "y": 125 } },
+      { "name": "9", "location": { "x": 546, "y": 125 } },
+      { "name": "10", "location": { "x": 603, "y": 125 } },
+      { "name": "11", "location": { "x": 659, "y": 125 } },
+      { "name": "12", "location": { "x": 710, "y": 125 } },
+      { "name": "13", "location": { "x": 770, "y": 125 } },
+      { "name": "14", "location": { "x": 818, "y": 125 } },
+      { "name": "15", "location": { "x": 885, "y": 125 } },
+      { "name": "16", "location": { "x": 933, "y": 125 } },
+      { "name": "17", "location": { "x": 1000, "y": 125 } },
+      { "name": "18", "location": { "x": 1048, "y": 125 } },
+      { "name": "19", "location": { "x": 1110, "y": 125 } },
+      { "name": "20", "location": { "x": 1168, "y": 125 } },
     ]
   },
   //事件处理函数
@@ -29,8 +46,8 @@ Page({
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
-          windowW: res.windowHeight,
-          windowH: res.windowHeight * (342/ 904),
+          windowW: res.screenHeight,
+          windowH: res.screenHeight * (429 / 1134),
         });
        that.bginfo();
       },
@@ -49,16 +66,14 @@ Page({
     //      that.canvasdraw(context);
     //    }
     //  })
-
    wx.getImageInfo({
-      src: 'https://img-blog.csdnimg.cn/20190306134613846.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pKMTEwNTgwNTI4MQ==,size_16,color_FFFFFF,t_70',
+      src: 'https://img-blog.csdnimg.cn/20190308102921747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pKMTEwNTgwNTI4MQ==,size_16,color_FFFFFF,t_70',
       success: function (res) {
         //res.path是网络图片的本地地址
         let qrCodePath = res.path;
         that.setData({
           canvasimgbg: qrCodePath
         })
-        console.log(qrCodePath);
         const context = wx.createCanvasContext('firstCanvas');
         that.canvasdraw(context);
       },
@@ -72,8 +87,6 @@ Page({
     let windowW = that.data.windowW;
     let windowH = that.data.windowH ;
     let canvasimgbg = that.data.canvasimgbg;
-    let newWidth = this.remSize(windowW);
-    let newHeight = this.remSize(windowH);
     canvas.drawImage(canvasimgbg, 0, 0, windowW, windowH);
     canvas.draw();
     // canvas.draw(true, setTimeout(function () {
@@ -104,38 +117,6 @@ Page({
       }
     })
   },
-  onReady(e) {
-    // // 使用 wx.createContext 获取绘图上下文 context
-    // const context = wx.createCanvasContext('secondCanvas');
-    // let width = wx.getSystemInfoSync().windowWidth;
-    // let height = width*(750/1334);
-    // context.drawImage('https://developers.weixin.qq.com/miniprogram/dev/image/cat/0.jpg?t=19030416', 0, 0, 320, 300);
-    
-    // context.beginPath();
-    // // 矩形
-    // context.strokeStyle = "red";
-    // context.rect(26, 150, 10, 10);
-    // context.stroke();
-
-    
-   
-    // context.strokeStyle = "yellow"; // 蓝色路径
-    // context.moveTo(35, 120);
-    // context.lineTo(200, 120);
-    // context.stroke();
-
-    // context.strokeStyle = "blue"; // 蓝色路径
-    // context.moveTo(35, 120);
-    // context.lineTo(35, 150);
-    // context.stroke();
-
-    // context.draw();
-    // console.log(context)
-  },
-  remSize(num) {
-    let scale = this.data.scale;
-    return num * scale
-  },
   search(e) {
     let value = this.data.inputValue;
     if (value == '') {
@@ -146,9 +127,11 @@ Page({
       })
     } else {
       let isExist = false;
+      let location = "";
       this.data.personnel.map((item) => {
         if (item.name == value) {
           isExist = true;
+          location = item.location;
         }
       })
 
@@ -158,8 +141,14 @@ Page({
           content: '未找到您要搜索的同事！',
           showCancel: false
         })
+        this.drawLine(location, 0);
       } else {
-        this.drawLine();
+        this.drawLine(location, 1);
+        wx.showToast({
+          title: '找到他了',
+          icon: 'success',
+          duration: 1000
+        })
       }
     }
   },
@@ -168,42 +157,20 @@ Page({
       inputValue: e.detail.value
     })
   },
-  drawLine() {
+  drawLine(location, isFind) {
     const context = wx.createCanvasContext('firstCanvas');
     let windowW = this.data.windowW;
     let windowH = this.data.windowH;
     let canvasimgbg = this.data.canvasimgbg;
     context.drawImage(canvasimgbg, 0, 0, windowW, windowH);
     context.beginPath();
-    
-    // 矩形
-    context.setLineWidth(3);
-    context.strokeStyle = "yellow";
-    let locationX = 142 * (windowH / windowW);
-    let locationY = 156 * (windowH / windowW);
-
-
-    console.log(locationX);
-    console.log(locationY);
-    context.rect(locationX, locationY, 10, 10);
+    if (isFind) {
+      let locationX = location.x / 1333 * windowW;
+      let locationY = location.y / 505 * windowH;
+      let imageW = windowW * (40 / 1333);
+      context.drawImage('./resources/images/xiaorenN.png', locationX, locationY, imageW, imageW);
+    }
     context.stroke();
-
-    // context.setLineWidth(3);
-    // context.moveTo(490, 30);
-    // context.lineTo(80, 83)
-    // context.stroke()
-
-    // context.strokeStyle = "yellow"; // 蓝色路径
-    // context.setLineWidth(3);
-    // context.moveTo(35, 120);
-    // context.lineTo(200, 120);
-    // context.stroke();
-
-    // context.strokeStyle = "blue"; // 蓝色路径
-    // context.moveTo(35, 120);
-    // context.lineTo(35, 150);
-    // context.stroke();
-
     context.draw();
   }
 })
