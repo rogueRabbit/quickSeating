@@ -9,26 +9,76 @@ Page({
     canvasimgbg: '',
     inputValue: '',
     personnel: [
-      { "name": "1", "location": { "x": 115, "y": 125 } },
-      { "name": "2", "location": { "x": 157, "y": 125 } },
-      { "name": "3", "location": { "x": 220, "y": 125 } },
-      { "name": "4", "location": { "x": 267, "y": 125 } },
-      { "name": "5", "location": { "x": 328, "y": 125 } },
-      { "name": "6", "location": { "x": 383, "y": 125 } },
-      { "name": "7", "location": { "x": 438, "y": 125 } },
-      { "name": "8", "location": { "x": 495, "y": 125 } },
-      { "name": "9", "location": { "x": 546, "y": 125 } },
-      { "name": "10", "location": { "x": 603, "y": 125 } },
-      { "name": "11", "location": { "x": 659, "y": 125 } },
-      { "name": "12", "location": { "x": 710, "y": 125 } },
-      { "name": "13", "location": { "x": 770, "y": 125 } },
-      { "name": "14", "location": { "x": 818, "y": 125 } },
-      { "name": "15", "location": { "x": 885, "y": 125 } },
-      { "name": "16", "location": { "x": 933, "y": 125 } },
-      { "name": "17", "location": { "x": 1000, "y": 125 } },
-      { "name": "18", "location": { "x": 1048, "y": 125 } },
-      { "name": "19", "location": { "x": 1110, "y": 125 } },
-      { "name": "20", "location": { "x": 1168, "y": 125 } },
+      { "name": "唐杰", "location": { "x": 63, "y": 136 } },
+      { "name": "杨雪明", "location": { "x": 120, "y": 136 } },
+      { "name": "李旭东", "location": { "x": 170, "y": 136 } },
+      { "name": "杜明", "location": { "x": 230, "y": 136 } },
+      { "name": "王毅", "location": { "x": 280, "y": 136 } },
+      { "name": "王志涛", "location": { "x": 338, "y": 136 } },
+      { "name": "金道伦", "location": { "x": 393, "y": 136 } },
+      { "name": "张文华", "location": { "x": 458, "y": 136 } },
+      { "name": "耿慧喆", "location": { "x": 505, "y": 136 } },
+      { "name": "祝丽静", "location": { "x": 556, "y": 136 } },
+      { "name": "卜海萌", "location": { "x": 618, "y": 136 } },
+      { "name": "服务器2", "location": { "x": 669, "y": 136 } },
+      { "name": "沈丹蕾", "location": { "x": 725, "y": 136 } },
+      { "name": "服务器3", "location": { "x": 790, "y": 136 } },
+      { "name": "14", "location": { "x": 818, "y": 136 } },
+      { "name": "15", "location": { "x": 885, "y": 136 } },
+      { "name": "16", "location": { "x": 933, "y": 136 } },
+      { "name": "17", "location": { "x": 1000, "y": 136 } },
+      { "name": "18", "location": { "x": 1048, "y": 136 } },
+      { "name": "19", "location": { "x": 1110, "y": 136 } },
+      { "name": "20", "location": { "x": 1168, "y": 136 } },
+      { "name": "侯军", "location": { "x": 118, "y": 178 } },
+      { "name": "程俊", "location": { "x": 170, "y": 178 } },
+      { "name": "蔡晓宇", "location": { "x": 230, "y": 178 } },
+      { "name": "肖子行", "location": { "x": 285, "y": 178 } },
+      { "name": "黄琎晶", "location": { "x": 338, "y": 178 } },
+      { "name": "费靓囡", "location": { "x": 400, "y": 178 } },
+      { "name": "李闻", "location": { "x": 450, "y": 178 } },
+      { "name": "马胜因", "location": { "x": 505, "y": 178 } },
+      { "name": "赵鑫", "location": { "x": 556, "y": 178 } },
+      { "name": "卢庆", "location": { "x": 615, "y": 178 } },
+      { "name": "王顺", "location": { "x": 669, "y": 178 } },
+      { "name": "张超", "location": { "x": 729, "y": 178 } },
+      { "name": "臧超", "location": { "x": 780, "y": 178 } },
+      { "name": "于婧文", "location": { "x": 190, "y": 240 } },
+      { "name": "郑晓燕", "location": { "x": 250, "y": 240 } },
+      { "name": "任琴", "location": { "x": 310, "y": 240 } },
+      { "name": "未知1", "location": { "x": 310, "y": 240 } },
+      { "name": "江涛", "location": { "x": 420, "y": 240 } },
+      // { "name": "空白1", "location": { "x": 480, "y": 225 } },
+      { "name": "刘洁", "location": { "x": 540, "y": 240 } },
+      { "name": "刘卿", "location": { "x": 600, "y": 240 } },
+      { "name": "洪璐", "location": { "x": 660, "y": 240 } },
+      { "name": "李克粉", "location": { "x": 717, "y": 240 } },
+      { "name": "朱飞", "location": { "x": 777, "y": 240 } },
+      { "name": "殷云", "location": { "x": 163, "y": 290 } },
+      { "name": "王翔", "location": { "x": 220, "y": 290 } },
+      { "name": "郑佳男", "location": { "x": 277, "y": 290 } },
+      { "name": "何世玮", "location": { "x": 334, "y": 290 } },
+      { "name": "刘旭航", "location": { "x": 391, "y": 290 } },
+      { "name": "邹巍", "location": { "x": 512, "y": 290 } },
+      { "name": "苏祥涛", "location": { "x": 569, "y": 290 } },
+      { "name": "时伟轩", "location": { "x": 626, "y": 290 } },
+      { "name": "齐春宝", "location": { "x": 683, "y": 290 } },
+      { "name": "管海龙", "location": { "x": 252, "y": 330 } },
+      { "name": "任文涛", "location": { "x": 309, "y": 330 } },
+      { "name": "张伟", "location": { "x": 366, "y": 330 } },
+      { "name": "刘文权", "location": { "x": 423, "y": 330 } },
+      { "name": "张立春", "location": { "x": 480, "y": 330 } },
+      { "name": "吴超超", "location": { "x": 570, "y": 330 } },
+      { "name": "李学森", "location": { "x": 631, "y": 330 } },
+      { "name": "郝飞雄", "location": { "x": 682, "y": 330 } },
+      { "name": "王攀", "location": { "x": 742, "y": 330 } },
+      { "name": "赵振华", "location": { "x": 280, "y": 380 } },
+      { "name": "李志亮", "location": { "x": 335, "y": 380 } },
+      { "name": "程钦辉", "location": { "x": 390, "y": 380 } },
+      { "name": "肖婷", "location": { "x": 540, "y": 380 } },
+      { "name": "刘鑫刚", "location": { "x": 595, "y": 380 } },
+      { "name": "潘登", "location": { "x": 715, "y": 380 } },
+      { "name": "高亚平", "location": { "x": 770, "y": 380 } },
     ]
   },
   //事件处理函数
@@ -58,7 +108,7 @@ Page({
 
     that.setData({
       windowW: windowW,
-      windowH: windowW * (429 / 1134),
+      windowH: windowW * (474 / 1218),
     });
     console.log(res);
     that.bginfo();
@@ -77,7 +127,7 @@ Page({
     //    }
     //  })
    wx.getImageInfo({
-      src: 'https://img-blog.csdnimg.cn/20190308102921747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pKMTEwNTgwNTI4MQ==,size_16,color_FFFFFF,t_70',
+     src: 'https://img-blog.csdnimg.cn/20190311135503210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pKMTEwNTgwNTI4MQ==,size_16,color_FFFFFF,t_70',
       success: function (res) {
         //res.path是网络图片的本地地址
         let qrCodePath = res.path;
@@ -155,7 +205,7 @@ Page({
       } else {
         this.drawLine(location, 1);
         wx.showToast({
-          title: '找到他了',
+          title: '找到他啦',
           icon: 'success',
           duration: 1000
         })
@@ -175,9 +225,9 @@ Page({
     context.drawImage(canvasimgbg, 0, 0, windowW, windowH);
     context.beginPath();
     if (isFind) {
-      let locationX = location.x / 1333 * windowW;
-      let locationY = location.y / 505 * windowH;
-      let imageW = windowW * (40 / 1333);
+      let locationX = location.x / 1332 * windowW;
+      let locationY = location.y / 518 * windowH;
+      let imageW = windowW * (40 / 1332);
       context.drawImage('./resources/images/xiaorenN.png', locationX, locationY, imageW, imageW);
     }
     context.stroke();
